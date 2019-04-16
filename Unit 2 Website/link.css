@@ -47,8 +47,8 @@ body, html {
     font-size: 30px;
 }
 
-.background {
-    height: 1200px;
+.backgroundl {
+    height: 950px;
     width: 1440px;
     background-color: #4286f4;
 }
@@ -61,6 +61,24 @@ body, html {
     color: white;
 }
 
-.text {
+.textl {
     text-align: center;
+}
+
+.texts {
+    text-align: center;
+    color: white;
+}
+
+.backgrounds {
+    height: 700px;
+    width: 1440px;
+    background-color: #f74a4a;
+}
+
+.subhead {
+    text-align: center;
+    color: white;
+    size: 25;
+    font-weight: bold;
 }

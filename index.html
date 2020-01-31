@@ -1,219 +1,300 @@
-<!DOCTYPE HTML>
-<html lang = "en">
-  <head>
-    <title>basicTable.html</title>
-    <meta charset = "UTF-8" />
-    <style>
+<html>
+    <head>
+        <!-- HERE ARE YOUR FIREBASE and GOOGLE AUTHENICATION IMPORTS -->
+        <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <!DOCTYPE html>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    table, td, th {
-      border: 1px solid black;
-      padding: 10px;
-    }
-    .center {
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <!-- Top NavBar -->
+        <nav>
+            <div class="nav-wrapper">
+            <a href="#" class="brand-logo right"><img id="upics" height=55 width=55 class="circle"></img></a>
+            <ul class="left hide-on-med-and-down">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="message.html">Messages</a></li>
+                <li><a href="notifs.html">Notifications</a></li>
+            </ul>
+        </div>
+    </nav>
 
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      width: 100%;
-    }
-    input {
-      text-align: center;
-      background-color: lightgrey;
-      border-radius: 10px;
-    }
-    </style>
-  </head>
-  <body>
-    <h1>Work Record</h1>
-    <a href="#activity1">activity1: Basics </a>
-    <a href="#activity2">activity2: JSON </a>
+        <!-- SideNav menu-->
+        <ul id="slide-out" class="sidenav">
+                <li><div class="user-view">
+                    <div class="background">
+                        <img src="images/office.jpg">
+                    </div>
+                    <a href="#user"><img class="circle" id="upicsides"></a>
+                    <a href="#name"><span class="white-text name">Luke Nathan</span></a>
+                    <a href="#email"><span class="white-text email">luke.nathan@ucc.on.ca</span></a>
+                </div></li>
+                <li><a class="waves-effect" type="submit" name="action" onclick="signin()">Sign in with Google</a></li>
+                <li><a class="waves-effect" href="#!">Second Link</a></li>
+                <li><div class="divider"></div></li>
+                <li><a class="subheader">Account Settings</a></li>
+                <li><a class="waves-effect" href="https://myaccount.google.com/?pli=1">Google Account Settings</a></li>
+                <li><a class="waves-effect" href="#!">Account Options</a></li>
+            </ul>
+            <a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
 
+</head>
 
-    <a name="activity2"></a>
-    <h2>Activity 1: UN Sustainability Goals Site</h2>
+<body>
 
-    <table>
-      <tr>
-        <th>Stage</th>
-        <th>Link</th>
-        <th>Short Description</th>
-      </tr>
-      <tr>
-        <td>Stage 1</td>
-        <td>
-      <form action="Activity 1/ungoalstep1.html">
-          <input class = "center" type="submit" value="Stage 1 Site" />
-      </form>
+<div align="center">
+    <h1>Welcome,</h1>   
+    <h1 id="uid"></h1>
+</div>
 
+<p id="date"></p>
 
-        <td>In this stage we configured the photo resources and created the file structure and template.</td>
-      </tr>
-      <tr>
-        <td>Stage 2</td>
-        <td>
+</br>
+</br>
+</br>
+</br>
 
-      <form action="Activity 1/ungoalstep2.html">
-          <input class = "center" type="submit" value="Stage 2 Site" />
-      </form>
+    <div class="row">
+            <div class="col m6">
+              <div class="card red lighten-2">
+                <div class="card-content white-text">
+                  <span><h2>New Announcements</h2></span>
+                </br>
+                <ul align="left">
+                    <li><h5>Assignment Late?</h5></li>
+                    <li><h5>Homework for Jan 9</h5></li>
+                    <li><h5>Hockey Tryouts</h5></li>
+                    <li><h5>Stewards Announcements</h5></li>
+                </ul>
+                </div>
+                <div align="center" class="card-action">
+                    <i class="material-icons" style="color:white">add</i>
+                </div>
+                <div>
+                    <a align="center" class="btn-flat" style="color:white">+</a>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col m6">
+            <div class="card red lighten-2">
+                <div class="card-content white-text">
+                    <span><h2>New Posts</h2></span>
+                </br>
+                    <ul align="left">
+                        <li><h5>Assembly Today?</h5></li>
+                        <li><h5>Hockey Tryouts?</h5></li>
+                        <li><h5>Chem Homework</h5></li>
+                        <li><h5>New Coding Quiz Results</h5></li>
+                    </ul>
+                </div>
+                <div align="center" class="card-action">
+                    <i class="material-icons" style="color:white">add</i>
+                </div>
+                </div>
+            </div>
+    </div>
 
-        </td>
-        <td>In this stage we added the first flip box to set the template for the rest of them. Flip boxes are valluable for code development because they are an element that can be easily used in my site to show information</td>
-      </tr>
+  <div class="row" align="center">
+        <div class="col s12 m6 offset-s6">
+            <div class="card-content black-text">
+              <h5>Your Average Scores</h5>
+              <canvas align="center" id="myChart" width="2" height="2" class="col s1"></canvas>
+            </div>
+            <div class="card-action">
+            </div>
+          </div>
 
-      <tr>
-        <td>Stage 3</td>
-        <td>
+            <div class="col s12 m6">
+              <div class="card white">
+                <div align="left" class="card-content black-text">
+                  <span class="card-title">Grade Leaderboard</span>
+                  <span class="card-title">Total Points: 243</span>
+                  <span class="card-title">Average Points: 76</span>
+                  <span class="card-title">You are in: 1st!</span>
+                  <ul class="collection">
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle blue">airport_shuttle</i>
+                          <span class="title">Luke Nathan</span>
+                          <p>76 average points<br>
+                             243 total points
+                          </p>
+                          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                          <i class="material-icons circle">folder</i>
+                          <span class="title">Terry Wang</span>
+                          <p>71 average points<br>
+                             236 total points
+                          </p>
+                          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                          <i class="material-icons circle green">insert_chart</i>
+                          <span class="title">Luca Adamo</span>
+                          <p>68 average points<br>
+                             219 total points
+                          </p>
+                          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                          <i class="material-icons circle red">play_arrow</i>
+                          <span class="title">Jason Lee</span>
+                          <p>68 average points<br>
+                             218 total points
+                          </p>
+                          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle orange">airplay</i>
+                            <span class="title">Justin Lo</span>
+                            <p>65 average points<br>
+                                203 total points
+                            </p>
+                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle purple">archive</i>
+                            <span class="title">Will Trojniak</span>
+                            <p>61 average points<br>
+                                187 total points
+                            </p>
+                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle brown">art_track</i>
+                            <span class="title">Eric An</span>
+                            <p>60 average points<br>
+                                185 total points
+                            </p>
+                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
 
-      <form action="Activity 1/ungoalstep3.html">
-          <input class = "center" type="submit" value="Stage 3 Site" />
-      </form>
+                      </ul>
+                </div>
+                <div class="card-action">
+                </div>
+              </div>
+            </div>
+          </div>
 
-        </td>
-        <td>In this stage we added the rest of the flip boxes for each UN Goal</td>
-      </tr>
+    
+</body>
 
-      <tr>
-        <td>Stage 4</td>
-        <td>
+<script>
 
-      <form action="Activity 1/ungoalstep4.html">
-          <input class = "center" type="submit" value="Stage 4 Site" />
-      </form>
+        // Your web app's Firebase configuration
+        userId = "";
 
-        </td>
-        <td>In this stage we organized the boxes in clean rows and added a blue background</td>
-      </tr>
+        var config = {
+            apiKey: "AIzaSyDPoyq1ioNdgUn9IpnTFLjo6VwL36YdF38",
+            authDomain: "basic-bc60e.firebaseapp.com",
+            databaseURL: "https://basic-bc60e.firebaseio.com",
+            projectId: "basic-bc60e",
+            storageBucket: "basic-bc60e.appspot.com",
+            messagingSenderId: "510527790639",
+            appId: "1:510527790639:web:5be8ebfafbab992c5070da",
+            measurementId: "G-TDDH2CNDSF"
+          };
+        firebase.initializeApp(config);
+               
+        // Check to see if you are logged in
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user == null) {
+                document.getElementById("uid").innerHTML = "not logged in";
+                return;
+            } else {
+                userId = user.uid; // you can also get .displayName, .photoURL, .email
+                name = user.displayName;
+                userImage = user.photoURL
+                document.getElementById("uid").innerHTML = name; // display Google uid on page
+                document.getElementById("upics").src = userImage;
+                document.getElementById("upicsides").src = userImage;
 
-      <tr>
-        <td>Stage 5</td>
-        <td>
+                
+            } // end user null check
+        }); // end check auth state
 
-      <form action="Activity 1/ungoalstep5.html">
-          <input class = "center" type="submit" value="Stage 5 Site" />
-      </form>
+        function signin() {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithRedirect(provider).then(function(result) { 
+                window.location.replace("fbtest.html");
+            });
+        };
 
-        </td>
-        <td>In this stage we added a title header and made it and the flip boxes scale with the window size. This is useful for making a header, and also scaling the window so when it is smaller it looks nice</td>
-      </tr>
+        var elem = document.querySelector('.sidenav');
+            var instance = new M.Sidenav(elem, {edge:'right'});
 
-      <tr>
-        <td>Stage 6</td>
-        <td>
+</script>
 
-      <form action="Activity 1/ungoalstep6.html">
-          <input class = "center" type="submit" value="Stage 6 Site" />
-      </form>
+<script src="path/to/chartjs/dist/Chart.js"></script>
 
-        </td>
-        <td>In this stage we fixed the header so it stayed on the screen when you scroll down</td>
-      </tr>
+<script>
 
-      <tr>
-        <td>Stage 7</td>
-        <td>
+//chart
 
-      <form action="Activity 1/ungoalstep7.html">
-          <input class = "center" type="submit" value="Stage 7 Site" />
-      </form>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Jan 1', 'Jan 2', 'Jan 3', 'Jan 4', 'Jan 5', 'Jan 6'],
+        datasets: [{
+            label: 'Average Class Score',
+            data: [8, 4, 9, 6, 7, 7],
+            backgroundColor: [
+                'rgba(115, 201, 119, 0.5)',
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(126, 224, 131, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(75, 192, 192, 0.5)'
+            ],
+            borderColor: [
+                'rgba(115, 201, 119, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(126, 224, 131, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        maintainAspectRatio: false
+    },
+    options: {
+        scales: {
+            yAxes: [{ 
+                ticks: {
+                    min: 0
+                }
+            }]
+        }
+    },
+});
 
-        </td>
-        <td>In this stage we fixed the issue in stage 6 where the resized header would overlap on top of the first flip box</td>
-      </tr>
+var elem = document.querySelector('.sidenav');
+            var instance = new M.Sidenav(elem, {edge:'right'});
 
-    </table>
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
 
-    <a name="activity2"></a>
-    <h2>Activity 2: JSON Data - HIV Infeaction Rate By Country</h2>
+    </script>
 
-        <table>
-      <tr>
-        <th>Stage</th>
-        <th>Link</th>
-        <th>Short Description</th>
-      </tr>
-      <tr>
-        <td>Stage 1</td>
-        <td>
-      <form action="Activity 2/stage1JSON.html">
-          <input class = "center" type="submit" value="Stage 1 Site" />
-      </form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+            
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+    });
 
-
-        <td>In this stage we will be checking to ensure that the site is properly loading JQUERY</td>
-      </tr>
-      <tr>
-        <td>Stage 2</td>
-        <td>
-
-      <form action="Activity 2/stage2JSON.html">
-          <input class = "center" type="submit" value="Stage 2 Site" />
-      </form>
-
-        </td>
-        <td>In this stage we got the JSON data and put it in the website. This is valuable for getting JSON data on the site</td>
-      </tr>
-
-      <tr>
-        <td>Stage 3</td>
-        <td>
-
-      <form action="Activity 2/stage3JSON.html">
-          <input class = "center" type="submit" value="Stage 3 Site" />
-      </form>
-
-        </td>
-        <td>In this stage we made the website log the data into the console</td>
-      </tr>
-
-      <tr>
-        <td>Stage 4</td>
-        <td>
-
-      <form action="Activity 2/stage4JSON.html">
-          <input class = "center" type="submit" value="Stage 4 Site" />
-      </form>
-
-        </td>
-        <td>In this stage we added style tags as well as display three different countries' HIV data. Displaying JSON data is important because there will be a lot of data displayed on my site</td>
-      </tr>
-
-      <tr>
-        <td>Stage 5</td>
-        <td>
-
-      <form action="Activity 2/stage5JSON.html">
-          <input class = "center" type="submit" value="Stage 5 Site" />
-      </form>
-
-        </td>
-        <td>In this stage we used an algorithm to log all the data into the site visually. This is very useful so I don't have to right it out all by hand</td>
-      </tr>
-
-      <tr>
-        <td>Stage 6</td>
-        <td>
-
-      <form action="Activity 2/stage6JSON.html">
-          <input class = "center" type="submit" value="Stage 6 Site" />
-      </form>
-
-        </td>
-        <td>In this stage we added a title and colour coded the data</td>
-      </tr>
-
-      <tr>
-        <td>Stage 7</td>
-        <td>
-
-      <form action="Activity 2/stage7JSON.html">
-          <input class = "center" type="submit" value="Stage 7 Site" />
-      </form>
-
-        </td>
-        <td>In this stage we added a search bar so you could search for the maximum HIV infection rates and see which countries match that search. This is valuable because search bars can be very useful</td>
-      </tr>
-
-    </table>
-  </body>
-</html>
+</script>
